@@ -13,7 +13,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        //first: Create a new doubles array, it's "length" will be the size
+        //then: Use a for loop to get the array data
+        //then: Start with index = 0 to the length of the array, and loop through the array
+        //then: Store the result of multiply of the number in the array
+        //finally: Return the array as output
+
+        double[] results = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            results[i] = number * (i+1);
+        }
+        return results; 
     }
 
     /// <summary>
@@ -23,11 +34,27 @@ public static class Arrays
     ///
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
     /// </summary>
-    public static void RotateListRight(List<int> data, int amount)
+    public static void RotateListRight(List<int> dataList, int amount)
     {
         // TODO Problem 2 Start
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //first: Calculate the number of elements in dataList and assign it to a variable
+        //then: Split the data into two parts
+        //then: Clear the dataList to prepare for the new order of the data
+        //finally: Join the two lists into the original list
+
+        int count = dataList.Count;
+
+        List<int> lastPart = dataList.GetRange(count-amount, amount);
+
+        List<int> firstPart = dataList.GetRange(0, count-amount);
+
+        dataList.Clear();
+
+        dataList.AddRange(lastPart);
+        dataList.AddRange(firstPart);
     }
 }
