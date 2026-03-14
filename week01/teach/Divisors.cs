@@ -5,7 +5,7 @@ public static class Divisors {
     public static void Run() {
         List<int> list = FindDivisors(80);
         Console.WriteLine("<List>{" + string.Join(", ", list) + "}"); // <List>{1, 2, 4, 5, 8, 10, 16, 20, 40}
-        List<int> list1 = FindDivisors(79);
+        List<int> list1 = FindDivisors(125);
         Console.WriteLine("<List>{" + string.Join(", ", list1) + "}"); // <List>{1}
     }
 
@@ -18,6 +18,13 @@ public static class Divisors {
     /// <returns>List of divisors</returns>
     private static List<int> FindDivisors(int number) {
         List<int> results = new();
+        
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                results.Add(i);
+            }
+        }
+        
         // TODO problem 1
         return results;
     }
